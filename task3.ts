@@ -26,10 +26,12 @@ export const task3 = (contentBrowser: ContentBrowser): Record<string, Record<str
             prev[year] = {
                 [subject]: [lesson[year][subject]],
             };
+            return prev;
         }
 
         if (!prev[year][subject]) {
             prev[year][subject] = [lesson[year][subject]];
+            return prev;
         }
 
 
@@ -37,6 +39,8 @@ export const task3 = (contentBrowser: ContentBrowser): Record<string, Record<str
 
         return prev;
     }, {} as Record<string, Record<string, string[]>>);
+
+    console.log(groupedByYearAndSubject);
 
     return groupedByYearAndSubject;
 };
